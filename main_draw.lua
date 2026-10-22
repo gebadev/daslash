@@ -6,9 +6,9 @@ function draw_title()
 	print("dash from behind, and slash!", 8, 62, 3)
 	print("press ❎ to start", 32, 82, blink_col)
 	print("🅾️ hiding - no damage", 16, 96, 6)
-	print("❎ dash and slash", 16,104,6)
+	print("❎ dash and slash", 16, 104, 6)
 	print("0.1", 2, 120, 13)
-	print("by kaytruck", 82, 120, 6)
+	print("by gebadev", 82, 120, 6)
 end
 
 function draw_gaming()
@@ -19,10 +19,10 @@ function draw_gaming()
 	-- TODO draw stage num
 	-- print(""..sn.."/"..#stages, 2, 3, 9)
 	-- draw player hp
-	for i=0, player.hpmax - 1 do
+	for i = 0, player.hpmax - 1 do
 		spr(49, 25 + 8 * i, 3)
 	end
-	for i=0, player.hp - 1 do
+	for i = 0, player.hp - 1 do
 		spr(50, 25 + 8 * i, 3)
 	end
 	-- draw life time
@@ -30,7 +30,7 @@ function draw_gaming()
 	if life_time / stage.life_time < 0.2 then
 		life_time_c = 8
 	end
-	local life_time_s = "0"..life_time
+	local life_time_s = "0" .. life_time
 	print(sub(life_time_s, #life_time_s - 1), 75, 3, life_time_c)
 	-- draw hiding time bar
 	local hbx = 84
@@ -54,7 +54,7 @@ function draw_gaming()
 	if not player.hiding then
 		player:draw()
 	end
-	
+
 	-- draw explosion
 	for pnts in all(explode_pnts) do
 		spr(18, pnts.x, pnts.y)
@@ -78,11 +78,11 @@ function draw_gameover()
 		cls(1)
 		local msg = "you died"
 		if stage.next == nil
-		and player.hp > 0 then
+				and player.hp > 0 then
 			msg = "cleard"
 		end
 		print(msg, 32, 32, 14)
-		print("score:"..score, 32, 48, 6)
+		print("score:" .. score, 32, 48, 6)
 		print("press ❎ to title", 32, 64, blink_col)
 	end
 	camera()
@@ -111,5 +111,5 @@ function debug_print()
 	-- print("shake_intensity:"..shake_intensity, 0, 18, 3)
 	-- print("enemies[1].shot_max"..enemies[1].shot_max, 0, 18, 3)
 	-- print("debug:"..(debug and "true" or "false"), 0, 18, 3)
-	print("cx:"..cx, 0, 23, 3)
+	print("cx:" .. cx, 0, 23, 3)
 end
